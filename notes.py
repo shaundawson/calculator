@@ -64,10 +64,67 @@
 # length = len(formatted_name)
 
 #Return as an early exit
-def format_name(f_name, l_name):
-    """" Take a first and last name and format it to return the title case version of the name. """
-    if f_name == "" or l_name == "":
-        return "You didn't provide valid inputs."
-    formatted_f_name = f_name.title()
-    formatted_l_name = l_name.title()
-    return f"Result: {formatted_f_name} {formatted_l_name}"
+# def format_name(f_name, l_name):
+#     """" Take a first and last name and format it to return the title case version of the name. """
+#     if f_name == "" or l_name == "":
+#         return "You didn't provide valid inputs."
+#     formatted_f_name = f_name.title()
+#     formatted_l_name = l_name.title()
+#     return f"Result: {formatted_f_name} {formatted_l_name}"
+
+
+
+#EXERCISE - CALCULATOR (Without Dictionary)
+from art import logo
+from replit import clear
+
+print(logo)
+
+x = int(input("What\'s the first number? "))
+operators= ["+", "-", "*", "/"]
+print(*operators, sep = "\n")
+operator = input("Pick an operation: ")
+y = int(input("What\'s the next number? "))
+
+# This function adds two numbers
+def add(x, y):
+    return x + y
+
+# This function subtracts two numbers
+def subtract(x, y):
+    return x - y
+
+# This function multiplies two numbers
+def multiply(x, y):
+    return x * y
+
+# This function divides two numbers
+def divide(x, y):
+    return x / y
+
+is_continue = True  
+def calc(x, y):
+        while is_continue == True:
+        # check if choice is one of the four options        
+            if operator == '+':
+                print(x, "+", y, "=", add(x, y))
+                return
+        
+            elif operator == '-':
+                print(x, "-", y, "=", subtract(x, y))
+                return
+        
+            elif operator == '*':
+                print(x, "*", y, "=", multiply(x, y))
+                return
+        
+            elif operator == '/':
+                print(x, "/", y, "=", divide(x, y))
+                return
+
+calc(x,y)
+
+stop_game = input("Type 'y' to continue calculating or type 'n' to start a new calculation: \n")
+if stop_game == "n":
+    is_continue = False
+    clear()
