@@ -28,13 +28,20 @@ operations = {
 }
 
 num1= int(input("What\'s the first number? "))
-#Loop through dictionary and print out each key.
 for symbol in operations: 
     print(symbol)
-operations_symbol = input("Pick an operation: ")
-num2 = int(input("What\'s the next number? "))
+should_continue = True
 
-#Determine which calculation to use
-calculation_function = operations[operations_symbol]
-answer = calculation_function(num1, num2)
-print(f"{num1} {operations_symbol} {num2} = {answer}")
+while should_continue:
+    operations_symbol = input("Pick an operation: ")
+    num2 = int(input("What's the next number? "))
+    calculation_function = operations[operations_symbol]
+    answer = calculation_function(num1, num2)
+    
+    print(f"{num1} {operations_symbol} {num2} = {answer}")
+    
+    if input(f"Type 'y' to continue calculating with {answer}, or type 'n' to exit: ") == 'y':
+        num1 = answer
+    else: 
+        should_continue = False
+        
